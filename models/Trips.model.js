@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 const tripsSchema = new Schema(
   {
@@ -7,7 +8,7 @@ const tripsSchema = new Schema(
       ref: "User",
     },
     destinations: {
-      type: [Strings],
+      type: [String],
     },
     startDate: {
       type: Date,
