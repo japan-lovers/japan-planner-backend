@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const activitiesSchema = new Shchema({
+const activitiesSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -14,8 +14,8 @@ const activitiesSchema = new Shchema({
     type: String,
   },
   category: {
-    type: Strings,
-    enum: ["Museums", "Outdoor", "Traditions", "Anime"],
+    type: String,
+    enum: ["Museums", "Outdoor", "Traditions", "Anime", "Observation deck"],
   },
   openAllYear: {
     type: Boolean,
@@ -23,9 +23,11 @@ const activitiesSchema = new Shchema({
   },
   startDate: {
     type: Date,
+    default: null,
   },
   endDate: {
     type: Date,
+    default: null,
   },
 });
 
