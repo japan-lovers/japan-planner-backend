@@ -2,6 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 
 const Trips = require("../models/Trips.model");
+const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 router.get("/trips", (req, res) => {
   Trips.find({})
@@ -15,7 +16,7 @@ router.get("/trips", (req, res) => {
     });
 });
 
-router.post("/trips", (req, res) => {
+router.post("/trips", isAuthenticated, (req, res) => {
   const { userId, destinations, startDate, endDate } = req.body;
 
   Trips.create({ userId, destinations, startDate, endDate })
@@ -40,7 +41,7 @@ router.get("/trips/:tripId", (req, res) => {
     });
 });
 
-router.put("/trips/:tripId", (req, res) => {
+router.put("/trips/:tripId", isAuthenticated, (req, res) => {
   const { tripId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tripId)) {
@@ -52,11 +53,11 @@ router.put("/trips/:tripId", (req, res) => {
     .then((updatedTrip) => res.json(updatedTrip))
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ error: "Failed to update trip" });
+      res.status(500).json({ message: "Failed to update trip" });
     });
 });
 
-router.delete("/trips/:tripId", (req, res) => {
+router.delete("/trips/:tripId", isAuthenticated, (req, res) => {
   const { tripId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tripId)) {
@@ -68,7 +69,18 @@ router.delete("/trips/:tripId", (req, res) => {
     .then(() => res.status(204).send())
     .catch((error) => {
       console.error(error);
-      res.status(500).json({ error: "Failed to delete trip" });
+      res.status(500).json({ message: "Failed to delete trip" });
+    });
+});
+
+router.get("/trips/user/:userId", (req, res) => {
+  const { userId } = req.params;
+
+  Trips.find({ userId })
+    .then((userTrips) => res.json(userTrips))
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Failed to retrieve user trips" });
     });
 });
 

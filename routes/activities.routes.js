@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Activities = require("../models/Activities.model");
+const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 router.get("/activities", (req, res) => {
   Activities.find({})
@@ -13,7 +14,7 @@ router.get("/activities", (req, res) => {
     });
 });
 
-router.post("/activities", (req, res) => {
+router.post("/activities", isAuthenticated, (req, res) => {
   const {
     name,
     location,
