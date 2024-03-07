@@ -6,6 +6,9 @@ const activitiesSchema = new Schema({
     required: true,
     unique: true,
   },
+  address: {
+    type: String,
+  },
   location: {
     type: String,
     required: true,
@@ -15,11 +18,24 @@ const activitiesSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ["Museums", "Outdoor", "Traditions", "Anime", "Observation deck"],
+    enum: [
+      "Museum",
+      "Outdoor",
+      "Traditional",
+      "Anime",
+      "Observation deck",
+      "Gaming",
+      "Sports",
+      "Theme parks",
+    ],
   },
   openAllYear: {
     type: Boolean,
     default: false,
+  },
+  bestSeason: {
+    type: String,
+    enum: ["Winter", "Spring", "Summer", "Fall"],
   },
   startDate: {
     type: Date,
@@ -28,6 +44,12 @@ const activitiesSchema = new Schema({
   endDate: {
     type: Date,
     default: null,
+  },
+  image: {
+    type: String,
+  },
+  free: {
+    type: Boolean,
   },
 });
 

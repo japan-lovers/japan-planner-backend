@@ -3,6 +3,10 @@ const { Schema, model } = mongoose;
 
 const tripsSchema = new Schema(
   {
+    name: {
+      type: String,
+      default: "My trip to Japan",
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
