@@ -24,9 +24,9 @@ const activitiesSchema = new Schema({
       "Traditional",
       "Anime",
       "Observation deck",
-      "Gaming",
       "Sports",
-      "Theme parks",
+      "Theme park",
+      "Festival",
     ],
   },
   openAllYear: {
@@ -35,7 +35,7 @@ const activitiesSchema = new Schema({
   },
   bestSeason: {
     type: String,
-    enum: ["Winter", "Spring", "Summer", "Fall"],
+    enum: ["Winter", "Spring", "Summer", "Fall", "none"],
   },
   startDate: {
     type: Date,
