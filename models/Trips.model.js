@@ -30,6 +30,7 @@ const tripsSchema = new Schema(
         },
         date: {
           type: Date,
+          default: null,
         },
       },
     ],

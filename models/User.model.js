@@ -30,6 +30,7 @@ const userSchema = new Schema(
     },
     intro: {
       type: String,
+      default: "",
     },
   },
   {

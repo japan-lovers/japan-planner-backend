@@ -35,7 +35,7 @@ const activitiesSchema = new Schema({
   },
   bestSeason: {
     type: String,
-    enum: ["Winter", "Spring", "Summer", "Fall", "none"],
+    enum: ["Winter", "Spring", "Summer", "Fall", "All Seasons"],
   },
   startDate: {
     type: Date,
