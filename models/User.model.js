@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
@@ -32,6 +33,12 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
+    favouriteActivities: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Activities",
+      },
+    ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

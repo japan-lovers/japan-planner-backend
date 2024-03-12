@@ -5,6 +5,7 @@ const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 router.get("/:userId", isAuthenticated, (req, res) => {
   User.findById({ _id: req.params.userId })
+    .populate("favouriteActivities")
     .then((user) => {
       res.json(user);
     })
