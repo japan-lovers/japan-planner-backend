@@ -6,7 +6,7 @@ const { isAuthenticated } = require('../middleware/jwt.middleware');
 
 router.get('/trips', (req, res) => {
   Trips.find({})
-    .populate('activities')
+    .populate('activities.activity')
     .then((trips) => {
       res.json(trips);
     })
