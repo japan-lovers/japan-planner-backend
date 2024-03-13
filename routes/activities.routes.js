@@ -4,7 +4,8 @@ const Activities = require("../models/Activities.model");
 const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 router.get("/activities", (req, res) => {
-  Activities.find({})
+  Activities.find()
+    .sort({ createdAt: -1 })
     .then((activities) => {
       res.json(activities);
     })
@@ -14,7 +15,7 @@ router.get("/activities", (req, res) => {
     });
 });
 
-router.post("/activities", isAuthenticated, (req, res) => {
+router.post("/activities", (req, res) => {
   const {
     name,
     address,
