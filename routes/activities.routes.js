@@ -54,4 +54,14 @@ router.get("/activities/:activityId", (req, res) => {
     });
 });
 
+router.get("/categories", async (req, res) => {
+  try {
+    const enumValues = Activities.schema.path("category").enumValues;
+    res.status(200).json(enumValues);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to retrieve categories" });
+  }
+});
+
 module.exports = router;

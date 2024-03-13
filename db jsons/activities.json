@@ -78,7 +78,7 @@
     "free": "yes"
   },
   {
-    "name": "Mt. Fuji climb Yoshida trail",
+    "name": "Mt. Fuji Yoshida trail",
     "address": "",
     "location": "Mt. Fuji",
     "description": "The most famous and easiest route to climb Mt. Fuji with 10 stations. Accessible from Tokyo by bus, it only takes about 6h to reach the top.",
@@ -104,7 +104,7 @@
     "free": "no"
   },
   {
-    "name": "Mt. Fuji climb Subashiri trail",
+    "name": "Mt. Fuji Subashiri trail",
     "address": "",
     "location": "Mt. Fuji",
     "description": "Located on the east side of the mountain. Much less crowded but with less shelters and services.",
@@ -117,7 +117,7 @@
     "free": "no"
   },
   {
-    "name": "Mt. Fuji climb Gotemba trail",
+    "name": "Mt. Fuji Gotemba trail",
     "address": "",
     "location": "Mt. Fuji",
     "description": "The longest route, takes a minimum of 7h to reach the top. Keep in mind that it has less shelters and you'll only find them when you're close to the top.",
@@ -406,7 +406,7 @@
     "name": "Hakone Open Air Museum",
     "address": "",
     "location": "Hakone",
-    "description": "The Hakone Open-Air Museum (箱根 彫刻の森美術館, Hakone Choukoku no Mori Bijutsukan), opened in 1969, is Japan's first open-air museum. The museum is the perfect spot to go for a leisurely stroll surrounded by nature, all the while appreciating great art. Needless to say, it's a popular spot for impressive Instagram snaps.",
+    "description": "The Hakone Open-Air Museum, opened in 1969, is Japan's first open-air museum. The museum is the perfect spot to go for a leisurely stroll surrounded by nature, all the while appreciating great art. Needless to say, it's a popular spot for impressive Instagram snaps.",
     "category": "Museum",
     "openAllYear": "yes",
     "bestSeason": "Spring",
