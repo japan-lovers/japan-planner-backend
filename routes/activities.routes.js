@@ -17,22 +17,28 @@ router.get("/activities", (req, res) => {
 router.post("/activities", isAuthenticated, (req, res) => {
   const {
     name,
+    address,
     location,
     description,
     category,
     openAllYear,
     startDate,
     endDate,
+    image,
+    free,
   } = req.body;
 
   Activities.create({
     name,
+    address,
     location,
     description,
     category,
     openAllYear,
     startDate,
     endDate,
+    image,
+    free,
   })
     .then((newActivity) => {
       res.json(newActivity);
