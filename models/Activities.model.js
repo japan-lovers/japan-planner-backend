@@ -52,6 +52,9 @@ const activitiesSchema = new Schema(
     free: {
       type: Boolean,
     },
+    geometry: {
+      type: Object,
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
