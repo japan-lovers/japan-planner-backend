@@ -64,7 +64,7 @@ router.get("/activities/:activityId", (req, res) => {
     });
 });
 
-router.put("/activities/:activityId", (req, res) => {
+router.put("/activities/:activityId", isAuthenticated, (req, res) => {
   const { activityId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(activityId)) {
