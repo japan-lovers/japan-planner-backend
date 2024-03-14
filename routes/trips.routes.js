@@ -1,22 +1,22 @@
-const router = require('express').Router();
-const mongoose = require('mongoose');
+const router = require("express").Router();
+const mongoose = require("mongoose");
 
-const Trips = require('../models/Trips.model');
-const { isAuthenticated } = require('../middleware/jwt.middleware');
+const Trips = require("../models/Trips.model");
+const { isAuthenticated } = require("../middleware/jwt.middleware");
 
-router.get('/trips', (req, res) => {
+router.get("/trips", (req, res) => {
   Trips.find({})
-    .populate('activities.activity')
+    .populate("activities.activity")
     .then((trips) => {
       res.json(trips);
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ error: 'Failed to retrieve trips' });
+      res.status(500).json({ error: "Failed to retrieve trips" });
     });
 });
 
-router.post('/trips', isAuthenticated, (req, res) => {
+router.post("/trips", isAuthenticated, (req, res) => {
   const { userId, destinations, startDate, endDate } = req.body;
 
   Trips.create({ userId, destinations, startDate, endDate })
@@ -25,27 +25,27 @@ router.post('/trips', isAuthenticated, (req, res) => {
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ error: 'Failed to create new trip' });
+      res.status(500).json({ error: "Failed to create new trip" });
     });
 });
 
-router.get('/trips/:tripId', (req, res) => {
+router.get("/trips/:tripId", (req, res) => {
   Trips.findById({ _id: req.params.tripId })
-    .populate('activities.activity')
+    .populate("activities.activity")
     .then((tripById) => {
       res.json(tripById);
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ error: 'Failed to retrieve trip by id' });
+      res.status(500).json({ error: "Failed to retrieve trip by id" });
     });
 });
 
-router.put('/trips/:tripId', isAuthenticated, (req, res) => {
+router.put("/trips/:tripId", isAuthenticated, (req, res) => {
   const { tripId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tripId)) {
-    res.status(400).json({ message: 'Specified id is not valid' });
+    res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
 
@@ -53,15 +53,15 @@ router.put('/trips/:tripId', isAuthenticated, (req, res) => {
     .then((updatedTrip) => res.json(updatedTrip))
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ message: 'Failed to update trip' });
+      res.status(500).json({ message: "Failed to update trip" });
     });
 });
 
-router.delete('/trips/:tripId', isAuthenticated, (req, res) => {
+router.delete("/trips/:tripId", isAuthenticated, (req, res) => {
   const { tripId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tripId)) {
-    res.status(400).json({ message: 'Specified id is not valid' });
+    res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
 
@@ -69,18 +69,18 @@ router.delete('/trips/:tripId', isAuthenticated, (req, res) => {
     .then(() => res.status(204).send())
     .catch((error) => {
       console.error(error);
-      res.status(500).json({ message: 'Failed to delete trip' });
+      res.status(500).json({ message: "Failed to delete trip" });
     });
 });
 
-router.get('/trips/user/:userId', (req, res) => {
+router.get("/trips/user/:userId", (req, res) => {
   const { userId } = req.params;
 
   Trips.find({ userId })
     .then((userTrips) => res.json(userTrips))
     .catch((error) => {
       console.log(error);
-      res.status(500).json({ error: 'Failed to retrieve user trips' });
+      res.status(500).json({ error: "Failed to retrieve user trips" });
     });
 });
 

@@ -15,7 +15,7 @@ router.get("/activities", (req, res) => {
     });
 });
 
-router.post("/activities", (req, res) => {
+router.post("/activities", isAuthenticated, (req, res) => {
   const {
     name,
     address,
