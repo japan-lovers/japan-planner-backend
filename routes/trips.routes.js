@@ -34,6 +34,7 @@ router.post("/trips", isAuthenticated, (req, res) => {
 router.get("/trips/:tripId", (req, res) => {
   Trips.findById({ _id: req.params.tripId })
     .populate("activities.activity")
+    .populate("userId")
     .then((tripById) => {
       res.json(tripById);
     })
