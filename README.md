@@ -1,10 +1,10 @@
-# Nippon Adventure - Backtend
+# Nippon Adventure - Backend
 
 # Description
 
 Nippon Adventure is a React-powered web-app that provides inspiration and planning tools to help you plan your next trip to Japan. This repository includes the code for the backend, you can find the frontend code [here](https://github.com/japan-lovers/japan-planner-frontend).
 
-<img src="./public/nipponadventure.jpg"/>
+<img src="./public/nippon-adventure.jpg"/>
 
 ## How it works
 
