@@ -12,7 +12,7 @@ const tripsSchema = new Schema(
       ref: "User",
     },
     destinations: {
-      type: [String],
+      type: String,
     },
     startDate: {
       type: Date,
