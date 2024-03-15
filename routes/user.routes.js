@@ -3,7 +3,7 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const { isAuthenticated } = require("../middleware/jwt.middleware");
 
-router.get("/:userId", isAuthenticated, (req, res) => {
+router.get("/:userId", (req, res) => {
   User.findById({ _id: req.params.userId })
     .populate("favouriteActivities")
     .then((user) => {
